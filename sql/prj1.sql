@@ -11,3 +11,6 @@ CREATE TABLE board
     iserted DATETIME      NOT NULL DEFAULT NOW()
 );
 
+SELECT *
+FROM board;
+
