@@ -2,6 +2,7 @@ package com.project1.controller;
 
 import com.project1.domain.Board;
 import com.project1.service.BoardService;
+import jakarta.servlet.ServletConfig;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class BoardController {
 
     private final BoardService service;
+    private final ServletConfig servletConfig;
 
     @GetMapping("/add")
     public String add() {
@@ -27,7 +29,7 @@ public class BoardController {
         System.out.println("board = " + board);
         service.add(board);
         redirectAttributes.addAttribute("id", board.getId());
-        return "redirect:/board";
+        return "redirect:/";
     }
 
     // /board?id=3
@@ -46,6 +48,29 @@ public class BoardController {
         model.addAttribute("boardList", service.list());
         //jsp로 포워드
         return "board/home";
+    }
+
+    @PostMapping("/delete")
+    public String delete(Integer id) {
+        service.remove(id);
+        return "redirect:/";
+    }
+
+    @GetMapping("/modify")
+    public String modifyForm(Integer id, Model model) {
+        //조회 해서
+        // 모델에 넣고
+        model.addAttribute("board", service.get(id));
+        //view로 포워드
+        return "board/modify";
+    }
+
+    @PostMapping("/modify")
+    public String modifyPost(Board board, RedirectAttributes redirectAttributes) {
+        System.out.println("board = " + board);
+        service.modify(board);
+        redirectAttributes.addAttribute("id", board.getId());
+        return "redirect:/board"; // 글을 보는 화면으로 리다이렉트
     }
 
 }
