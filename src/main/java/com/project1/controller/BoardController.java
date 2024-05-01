@@ -2,7 +2,6 @@ package com.project1.controller;
 
 import com.project1.domain.Board;
 import com.project1.service.BoardService;
-import jakarta.servlet.ServletConfig;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +14,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class BoardController {
 
     private final BoardService service;
-    private final ServletConfig servletConfig;
 
     @GetMapping("/add")
     public String add() {
