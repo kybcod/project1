@@ -2,7 +2,8 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary bg-primary mb-4" data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg bg-body-tertiary bg-primary mb-4" data-bs-theme="dark"
+     style="font-family: 'TTHakgyoansimUndongjangL'">
     <div class="container">
         <a class="navbar-brand" href="/">BOARD😎</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"

@@ -34,4 +34,5 @@ public class BoardService {
     public void modify(Board board) {
         mapper.update(board);
     }
+
 }

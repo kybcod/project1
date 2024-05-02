@@ -49,7 +49,7 @@ public class BoardController {
     }
 
     @PostMapping("/delete")
-    public String delete(Integer id) {
+    public String delete(Model model, Integer id) {
         service.remove(id);
         return "redirect:/";
     }
