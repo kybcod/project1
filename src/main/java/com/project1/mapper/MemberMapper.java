@@ -1,9 +1,7 @@
 package com.project1.mapper;
 
 import com.project1.domain.Member;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -20,4 +18,12 @@ public interface MemberMapper {
 
     @Select("SELECT * FROM member ORDER BY id DESC ")
     List<Member> selectAll();
+
+    @Delete("DELETE FROM member WHERE id = #{id}")
+    int delete(Integer id);
+
+    @Update("""
+            UPDATE member SET email = #{email}, password = #{password}, nick_name = #{nickName} WHERE id = #{id}
+            """)
+    int update(Member member);
 }

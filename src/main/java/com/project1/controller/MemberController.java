@@ -24,7 +24,7 @@ public class MemberController {
     @PostMapping("signup")
     public String signup(Member member) {
         service.signup(member);
-        return "redirect:/";
+        return "redirect:/member/list";
     }
 
     @GetMapping("list")
@@ -33,9 +33,28 @@ public class MemberController {
         return "member/list";
     }
 
-    @GetMapping("view")
-    public String view(Integer id, Model model, RedirectAttributes rttr) {
-        model.addAttribute("member", service.selectAll(id));
-        return "member/view";
+    @GetMapping("")
+    public String view(Integer id, Model model) {
+        model.addAttribute("member", service.get(id));
+        return "member/info";
+    }
+
+    @PostMapping("remove")
+    public String remove(Integer id) {
+        service.delete(id);
+        return "redirect:/member/list";
+    }
+
+    @GetMapping("modify")
+    public String modify(Integer id, Model model) {
+        model.addAttribute("member", service.get(id));
+        return "member/modify";
+    }
+
+    @PostMapping("modify")
+    public String modifyPost(Member member, RedirectAttributes rttr) {
+        service.modify(member);
+        rttr.addAttribute("id", member.getId());
+        return "redirect:/member/list";
     }
 }

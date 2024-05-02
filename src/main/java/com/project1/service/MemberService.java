@@ -19,12 +19,20 @@ public class MemberService {
         mapper.insert(member);
     }
 
-    public Member selectAll(Integer id) {
+    public List<Member> list() {
+        return mapper.selectAll();
+    }
+
+    public Member get(Integer id) {
         return mapper.selectById(id);
     }
 
-    public List<Member> list() {
-        return mapper.selectAll();
+    public void delete(Integer id) {
+        mapper.delete(id);
+    }
+
+    public void modify(Member member) {
+        mapper.update(member);
     }
 }
 

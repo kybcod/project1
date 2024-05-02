@@ -20,32 +20,41 @@
 
 <c:import url="/WEB-INF/fragment/navbar.jsp"/>
 
-<%--div.container>div.row.justify-content-center>div.col-6--%>
 <div class="container" style="font-family: 'TTHakgyoansimUndongjangL'">
     <div class="row justify-content-center">
         <div class="col-8">
-            <h3 class="mb-4">회원 조회</h3>
-            <form action="/member/view">
-                <%--                div*3>label.form-label+input.form-control--%>
+            <h3 class="mb-4">${member.id}번 회원 정보</h3>
+            <form action="/member/modify" method="post">
+                <input type="hidden" name="id" value="${member.id}">
                 <div class="mb-3">
                     <label for="emailInput" class="form-label">이메일</label>
-                    <input readonly name="email" id="emailInput" type="email" class="form-control"
+                    <input name="email" id="emailInput" type="email" class="form-control"
                            placeholder="E-mail" value="${member.email}">
                 </div>
                 <div class="mb-3">
                     <label for="pwdInput" class="form-label">패스워드</label>
-                    <input readonly name="password" id="pwdInput" required type="password"
+                    <input name="password" id="pwdInput" required type="text"
                            class="form-control" value="${member.password}">
                 </div>
                 <div class="mb-3">
                     <label for="nickInput" class="form-label">별명</label>
-                    <input readonly name="nickName" id="nickInput" required type="text"
+                    <input name="nickName" id="nickInput" required type="text"
                            class="form-control" value="${member.nickName}">
+                </div>
+                <div class="mb-3">
+                    <label for="insertedInput" class="form-label">가입일자</label>
+                    <input name="inserted" id="insertedInput" required type="text"
+                           class="form-control" value="${member.inserted}">
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-primary">수정</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
         integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>

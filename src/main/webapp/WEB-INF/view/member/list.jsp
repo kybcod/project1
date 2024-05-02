@@ -38,12 +38,13 @@
                 </thead>
                 <tbody>
                 <c:forEach items="${memberList}" var="member">
-                    <c:url value="/member/view" var="viewMember">
+                    <c:url value="/member" var="viewMember">
                         <c:param name="id" value="${member.id}"/>
                     </c:url>
                     <tr>
                         <td>
                             <a href="${viewMember}">${member.id}</a>
+                                <%--<a href="/member?id=${member.id}}">${member.id}</a>--%>
                         </td>
                         <td>${member.email}</td>
                         <td>${member.password}</td>
