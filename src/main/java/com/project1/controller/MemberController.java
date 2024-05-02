@@ -45,12 +45,14 @@ public class MemberController {
         return "redirect:/member/list";
     }
 
+    // 처음에 수정 클릭 시 member/modify?id=?로
     @GetMapping("modify")
     public String modify(Integer id, Model model) {
         model.addAttribute("member", service.get(id));
         return "member/modify";
     }
 
+    // member/modify?id=?에서 수정 클릭 시 member/list로 리다이렉트
     @PostMapping("modify")
     public String modifyPost(Member member, RedirectAttributes rttr) {
         service.modify(member);

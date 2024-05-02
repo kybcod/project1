@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,6 +16,10 @@
             font-weight: 300;
             font-style: normal;
         }
+
+        tbody tr:hover { /* 마우스가 올라오면 pink 배경 */
+            background: pink;
+        }
     </style>
 </head>
 <body>
@@ -23,10 +29,10 @@
 <%--div.container>div.row.justify-content-center>div.col-6--%>
 <div class="container" style="font-family: 'TTHakgyoansimUndongjangL'">
     <div class="row justify-content-center">
-        <div class="col-8">
+        <div class="col-12 col-xl-6">
             <h3 class="mb-4">회원 목록</h3>
             <%--            table.table.table-striped>thead>tr>th*5--%>
-            <table class="table table-striped">
+            <table class="table">
                 <thead>
                 <tr>
                     <th>NO</th>
@@ -36,17 +42,19 @@
                     <th>가입일자</th>
                 </tr>
                 </thead>
-                <tbody>
-                <c:forEach items="${memberList}" var="member">
+                <tbody class="table-group-divider">
+                <c:forEach items="${memberList}" var="member" varStatus="status">
                     <c:url value="/member" var="viewMember">
                         <c:param name="id" value="${member.id}"/>
                     </c:url>
-                    <tr>
-                        <td>
-                            <a href="${viewMember}">${member.id}</a>
-                                <%--<a href="/member?id=${member.id}}">${member.id}</a>--%>
+                    <tr onclick="location.href='${viewMember}'">
+                        <td style="color: blue">
+                                ${fn:length(memberList)-status.index}
                         </td>
-                        <td>${member.email}</td>
+                        <td>
+                                ${member.email}
+                        </td>
+                            <%--<a href="/member?id=${member.id}}">${member.id}</a>--%>
                         <td>${member.password}</td>
                         <td>${member.nickName}</td>
                         <td>${member.inserted}</td>
@@ -54,6 +62,7 @@
                 </c:forEach>
                 </tbody>
             </table>
+
         </div>
     </div>
 </div>

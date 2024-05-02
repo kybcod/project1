@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,12 +35,12 @@
                 </tr>
                 </thead>
                 <tbody class="table-group-divider">
-                <c:forEach items="${boardList}" var="board">
+                <c:forEach items="${boardList}" var="board" varStatus="status">
                     <c:url value="/board" var="viewLink">
                         <c:param name="id" value="${board.id}"/>
                     </c:url>
                     <tr>
-                        <td>${board.id}</td>
+                        <td>${fn:length(boardList)-status.index}</td>
                         <td>
                             <a href="${viewLink}">${board.title}</a>
                         </td>
