@@ -21,7 +21,7 @@
 <c:import url="/WEB-INF/fragment/navbar.jsp"/>
 
 <%--div.container>div.row.justify-content-center>div.col-6--%>
-<div class="container">
+<div class="container" style="font-family: 'TTHakgyoansimUndongjangL'">
     <div class="row justify-content-center">
         <div class="col-8">
             <h3 class="mb-4">회원 목록</h3>

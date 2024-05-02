@@ -24,7 +24,7 @@
 <div class="container" style="font-family: 'TTHakgyoansimUndongjangL'">
     <div class="row justify-content-center">
         <div class="col-8">
-            <h3 class="mb-4">회원 가입</h3>
+            <h3 class="mb-4">회원 조회</h3>
             <form action="/member/view">
                 <%--                div*3>label.form-label+input.form-control--%>
                 <div class="mb-3">
