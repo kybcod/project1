@@ -23,8 +23,6 @@ public class BoardController {
 
     @PostMapping("/add")
     public String addPost(Board board, RedirectAttributes redirectAttributes) {
-        System.out.println("BoardController.addPost");
-        System.out.println("board = " + board);
         service.add(board);
         redirectAttributes.addAttribute("id", board.getId());
         return "redirect:/";
