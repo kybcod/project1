@@ -29,7 +29,7 @@
 <%--div.container>div.row.justify-content-center>div.col-6--%>
 <div class="container" style="font-family: 'TTHakgyoansimUndongjangL'">
     <div class="row justify-content-center">
-        <div class="col-12 col-xl-6">
+        <div class="col-12 col-xl-5">
             <h3 class="mb-4">회원 목록</h3>
             <%--            table.table.table-striped>thead>tr>th*5--%>
             <table class="table">
@@ -62,7 +62,33 @@
                 </c:forEach>
                 </tbody>
             </table>
-
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </div>
 </div>

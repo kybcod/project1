@@ -3,6 +3,7 @@ package com.project1.service;
 import com.project1.domain.Member;
 import com.project1.mapper.MemberMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,8 +15,10 @@ import java.util.List;
 public class MemberService {
 
     private final MemberMapper mapper;
+    private final BCryptPasswordEncoder encoder;
 
     public void signup(Member member) {
+        member.setPassword(encoder.encode(member.getPassword()));
         mapper.insert(member);
     }
 
