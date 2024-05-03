@@ -41,5 +41,7 @@ UPDATE board
 SET member_id = 39
 WHERE id > 0;
 
-SELECT date_format(inserted, '%Y-%m-%d')
+SELECT *
 FROM board;
+
+DESC board;

@@ -39,12 +39,15 @@
                 <div class="mb-3">
                     <label for="pwdInput" class="form-label">패스워드</label>
                     <input name="password" id="pwdInput" required type="text"
-                           class="form-control" value="${member.password}">
+                           class="form-control" value="">
+                    <small class="form-text">
+                        암호를 입력하지 않으면 기존 암호로 유지됩니다.
+                    </small>
                 </div>
                 <div class="mb-3">
                     <label for="pwdCheckInput" class="form-label">패스워드 확인</label>
                     <input oninput="pwdCheck()" id="pwdCheckInput" required type="text"
-                           class="form-control" value="${member.password}">
+                           class="form-control" value="">
                     <div class="form-text" id="checkMessage"></div>
                 </div>
                 <div class="mb-3">

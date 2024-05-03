@@ -46,7 +46,8 @@ public class MemberController {
         if (service.hasAccess(id, authentication)) {
             service.remove(id);
         }
-        return "redirect:/member/signup";
+//        return "redirect:/member/signup";
+        return "redirect:/logout";
     }
 
     // 처음에 수정 클릭 시 member/modify?id=?로
@@ -58,8 +59,10 @@ public class MemberController {
 
     // member/modify?id=?에서 수정 클릭 시 member/list로 리다이렉트
     @PostMapping("modify")
-    public String modifyPost(Member member, RedirectAttributes rttr) {
-        service.modify(member);
+    public String modifyPost(Member member, Authentication authentication, RedirectAttributes rttr) {
+        if (service.hasAccess(member.getId(), authentication)) {
+            service.modify(member);
+        }
         rttr.addAttribute("id", member.getId());
         return "redirect:/member";
     }

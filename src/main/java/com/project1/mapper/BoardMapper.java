@@ -46,7 +46,7 @@ public interface BoardMapper {
     @Select("SELECT COUNT(*) FROM board")
     int countAll();
 
-    @Select("""
+    @Delete("""
             DELETE FROM board
             WHERE member_id = #{memberId}
             """)
