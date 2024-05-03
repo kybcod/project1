@@ -3,14 +3,13 @@ package com.project1.controller;
 import com.project1.domain.Board;
 import com.project1.service.BoardService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import java.security.Principal;
 
 @Controller
 @RequiredArgsConstructor
@@ -20,13 +19,12 @@ public class BoardController {
 
     @GetMapping("/add")
     public String add() {
-
         return "board/add";
     }
 
     @PostMapping("/add")
-    public String addPost(Board board, Principal principal, RedirectAttributes redirectAttributes) {
-        service.add(board);
+    public String addPost(Board board, Authentication authentication, RedirectAttributes redirectAttributes) {
+        service.add(board, authentication);
         redirectAttributes.addAttribute("id", board.getId());
         return "redirect:/";
     }
@@ -50,8 +48,12 @@ public class BoardController {
     }
 
     @PostMapping("/delete")
-    public String delete(Model model, Integer id) {
-        service.remove(id);
+    public String delete(Model model, Integer id, Authentication authentication) {
+        //권한이 있어야 지울 수 있음
+        if (service.hasAccess(id, authentication)) {
+            service.remove(id);
+        }
+
         return "redirect:/";
     }
 

@@ -65,12 +65,12 @@
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">
                     <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
+                        <a class="page-link" href="#">
                             <span aria-hidden="true">&laquo;&laquo;</span>
                         </a>
                     </li>
                     <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
+                        <a class="page-link" href="#">
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
@@ -78,12 +78,12 @@
                         <a class="page-link" href="#">1</a>
                     </li>
                     <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
+                        <a class="page-link" href="#">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                     </li>
                     <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
+                        <a class="page-link" href="#">
                             <span aria-hidden="true">&raquo;&raquo;</span>
                         </a>
                     </li>
