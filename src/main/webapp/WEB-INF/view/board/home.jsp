@@ -39,16 +39,87 @@
                     <c:url value="/board" var="viewLink">
                         <c:param name="id" value="${board.id}"/>
                     </c:url>
-                    <tr>
-                        <td>${fn:length(boardList)-status.index}</td>
+                    <tr onclick="location.href='${viewLink}'">
+                        <td style="color:blue;">${fn:length(boardList)-status.index}</td>
                         <td>
-                            <a href="${viewLink}">${board.title}</a>
+                                ${board.title}
                         </td>
                         <td>${board.writer}</td>
                     </tr>
                 </c:forEach>
                 </tbody>
             </table>
+
+
+            <div class="row justify-content-center">
+                <div class="col-8">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-center">
+
+                            <%--맨 처음--%>
+                            <c:if test="${pageInfo.currentPageNumber > 1}">
+
+                            <c:url var="fistPageLink" value="/">
+                                <c:param name="page" value="1"/>
+                            </c:url>
+                            <li class="page-item">
+                                <a class="page-link" href="${fistPageLink}">
+                                    <span aria-hidden="true">&laquo;&laquo;</span>
+                                </a>
+                            </li>
+                            </c:if>
+
+                            <%--이전--%>
+                            <c:if test="${pageInfo.prevPageNumber > 0}">
+                            <c:url var="prevPageLink" value="/">
+                                <c:param name="page" value="${pageInfo.prevPageNumber}"/>
+                            </c:url>
+                            <li class="page-item">
+                                <a class="page-link" href="${prevPageLink}">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            </c:if>
+
+                            <c:forEach begin="${pageInfo.beginPageNumber}" end="${pageInfo.endPageNumber}"
+                                       var="pageNumber">
+                            <c:url var="link" value="/">
+                                <c:param name="page" value="${pageNumber}"/>
+                            </c:url>
+                            <li class="page-item ${pageInfo.currentPageNumber eq pageNumber ? 'active' : ''}">
+                                <a class="page-link"
+                                   href="${link}">${pageNumber}</a>
+                            </li>
+                            </c:forEach>
+
+                            <%--다음--%>
+                            <c:if test="${pageInfo.nextPageNumber < pageInfo.lastPageNumber}">
+                            <c:url var="nextPageNumber" value="/">
+                                <c:param name="page" value="${pageInfo.nextPageNumber}"/>
+                            </c:url>
+                            <li class="page-item">
+                                <a class="page-link" href="${nextPageNumber}">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                            </c:if>
+
+                            <%--맨 끝--%>
+                            <c:if test="${pageInfo.currentPageNumber < pageInfo.lastPageNumber}">
+                            <c:url var="lastPageLink" value="/">
+                                <c:param name="page" value="${pageInfo.lastPageNumber}"/>
+                            </c:url>
+                            <li class="page-item">
+                                <a class="page-link" href="${lastPageLink}">
+                                    <span aria-hidden="true">&raquo;&raquo;</span>
+                                </a>
+                            </li>
+                            </c:if>
+                </div>
+            </div>
+
+            </ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -56,6 +127,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
         integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-t>
 </body>
 </html>

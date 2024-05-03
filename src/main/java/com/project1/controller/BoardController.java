@@ -7,7 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.security.Principal;
 
 @Controller
 @RequiredArgsConstructor
@@ -22,7 +25,7 @@ public class BoardController {
     }
 
     @PostMapping("/add")
-    public String addPost(Board board, RedirectAttributes redirectAttributes) {
+    public String addPost(Board board, Principal principal, RedirectAttributes redirectAttributes) {
         service.add(board);
         redirectAttributes.addAttribute("id", board.getId());
         return "redirect:/";
@@ -38,10 +41,10 @@ public class BoardController {
     }
 
     @GetMapping("/")
-    public String home(Model model) {
-        // 게시물 목록 조회(Select)
-        // 모델에 넣고
-        model.addAttribute("boardList", service.list());
+    public String home(@RequestParam(defaultValue = "1", value = "page")
+                       Integer page, Model model) {
+        // 게시물 목록 조회(Select) 모델에 넣고
+        model.addAllAttributes(service.list(page));
         //jsp로 포워드
         return "board/home";
     }
@@ -63,7 +66,6 @@ public class BoardController {
 
     @PostMapping("/modify")
     public String modifyPost(Board board, RedirectAttributes redirectAttributes) {
-        System.out.println("board = " + board);
         service.modify(board);
         redirectAttributes.addAttribute("id", board.getId());
         return "redirect:/board"; // 글을 보는 화면으로 리다이렉트
