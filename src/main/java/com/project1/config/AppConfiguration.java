@@ -19,6 +19,7 @@ public class AppConfiguration {
         return http.build();
     }
 
+    // 암호화
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
