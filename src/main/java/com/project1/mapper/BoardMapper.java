@@ -31,7 +31,7 @@ public interface BoardMapper {
 
     @Update("""
             UPDATE board 
-            SET title = #{title}, content = #{content}, writer = #{writer}
+            SET title = #{title}, content = #{content}
             WHERE id = #{id}
             """)
     int update(Board board);
@@ -45,4 +45,10 @@ public interface BoardMapper {
 
     @Select("SELECT COUNT(*) FROM board")
     int countAll();
+
+    @Select("""
+            DELETE FROM board
+            WHERE member_id = #{memberId}
+            """)
+    int deleteBoradByMemberId(Integer memberId);
 }

@@ -64,7 +64,8 @@ public class BoardService {
                         "beginPageNumber", beginPageNumber,
                         "prevPageNumber", prevPageNumber,
                         "nextPageNumber", nextPageNumber,
-                        "currentPageNumber", page)
+                        "currentPageNumber", page,
+                        "numberOfBoard", numberOfBoard)
         );
     }
 

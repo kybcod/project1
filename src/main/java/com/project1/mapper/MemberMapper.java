@@ -20,7 +20,7 @@ public interface MemberMapper {
     List<Member> selectAll();
 
     @Delete("DELETE FROM member WHERE id = #{id}")
-    int delete(Integer id);
+    int deleteById(Integer id);
 
     @Update("""
             UPDATE member SET password = #{password}, nick_name = #{nickName} WHERE id = #{id}
@@ -29,4 +29,5 @@ public interface MemberMapper {
 
     @Select("SELECT * FROM member WHERE email = #{email}")
     Member selectByEmail(String email);
+
 }

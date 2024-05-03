@@ -24,44 +24,43 @@
     <div class="row justify-content-center">
         <div class="col-8">
             <h3 class="mb-4">${member.id}번 회원 정보</h3>
-            <form action="/member/modify" method="post"
-            ">
-            <input type="hidden" name="id" value="${member.id}">
-            <div class="mb-4">
-                <small style="background-color: beige; color: gray">❌ 이메일과 가입일자는 수정할 수 없습니다.</small>
-            </div>
+            <form action="/member/modify" method="post">
+                <input type="hidden" name="id" value="${member.id}">
+                <div class="mb-4">
+                    <small style="background-color: beige; color: gray">❌ 이메일과 가입일자는 수정할 수 없습니다.</small>
+                </div>
 
-            <div class="mb-3">
-                <label for="emailInput" class="form-label">이메일</label>
-                <input id="emailInput" class="form-control" value="${member.email}" type="text"
-                       aria-label="Disabled input example"
-                       disabled>
-            </div>
-            <div class="mb-3">
-                <label for="pwdInput" class="form-label">패스워드</label>
-                <input name="password" id="pwdInput" required type="text"
-                       class="form-control" value="${member.password}">
-            </div>
-            <div class="mb-3">
-                <label for="pwdCheckInput" class="form-label">패스워드 확인</label>
-                <input oninput="pwdCheck()" id="pwdCheckInput" required type="text"
-                       class="form-control" value="${member.password}">
-                <div class="form-text" id="checkMessage"></div>
-            </div>
-            <div class="mb-3">
-                <label for="nickInput" class="form-label">별명</label>
-                <input oninput="pwdCheck()" name="nickName" id="nickInput" required type="text"
-                       class="form-control" value="${member.nickName}">
-            </div>
-            <div class="mb-3">
-                <label for="insertedInput" class="form-label">가입일자</label>
-                <input readonly name="inserted" id="insertedInput" required type="text"
-                       class="form-control" value="${member.inserted}" aria-label="Disabled input example"
-                       disabled>
-            </div>
-            <div class="mb-3">
-                <button class="btn btn-secondary">수정</button>
-            </div>
+                <div class="mb-3">
+                    <label for="emailInput" class="form-label">이메일</label>
+                    <input id="emailInput" class="form-control" value="${member.email}" type="text"
+                           aria-label="Disabled input example"
+                           disabled>
+                </div>
+                <div class="mb-3">
+                    <label for="pwdInput" class="form-label">패스워드</label>
+                    <input name="password" id="pwdInput" required type="text"
+                           class="form-control" value="${member.password}">
+                </div>
+                <div class="mb-3">
+                    <label for="pwdCheckInput" class="form-label">패스워드 확인</label>
+                    <input oninput="pwdCheck()" id="pwdCheckInput" required type="text"
+                           class="form-control" value="${member.password}">
+                    <div class="form-text" id="checkMessage"></div>
+                </div>
+                <div class="mb-3">
+                    <label for="nickInput" class="form-label">별명</label>
+                    <input oninput="pwdCheck()" name="nickName" id="nickInput" required type="text"
+                           class="form-control" value="${member.nickName}">
+                </div>
+                <div class="mb-3">
+                    <label for="insertedInput" class="form-label">가입일자</label>
+                    <input readonly name="inserted" id="insertedInput" required type="text"
+                           class="form-control" value="${member.inserted}" aria-label="Disabled input example"
+                           disabled>
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-secondary">수정</button>
+                </div>
             </form>
         </div>
     </div>

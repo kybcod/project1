@@ -67,8 +67,10 @@ public class BoardController {
     }
 
     @PostMapping("/modify")
-    public String modifyPost(Board board, RedirectAttributes redirectAttributes) {
-        service.modify(board);
+    public String modifyPost(Board board, Authentication authentication, RedirectAttributes redirectAttributes) {
+        if (service.hasAccess(board.getId(), authentication)) {
+            service.modify(board);
+        }
         redirectAttributes.addAttribute("id", board.getId());
         return "redirect:/board"; // 글을 보는 화면으로 리다이렉트
     }

@@ -40,7 +40,7 @@
                         <c:param name="id" value="${board.id}"/>
                     </c:url>
                     <tr onclick="location.href='${viewLink}'">
-                        <td style="color:blue;">${fn:length(boardList)-status.index}</td>
+                        <td style="color:blue;">${(pageInfo.numberOfBoard)- (pageInfo.currentPageNumber-1) * 10 - status.index}</td>
                         <td>
                                 ${board.title}
                         </td>
