@@ -26,6 +26,9 @@
         <div class="col-6">
             <h3 class="mb-4">로그인</h3>
             <div>
+                <a href="/oauth2/authorization/naver">네이버 로그인</a>
+            </div>
+            <div>
                 <form action="/member/login" method="post">
                     <div class="mb-3">
                         <label for="InputEmail" class="form-label">이메일</label>

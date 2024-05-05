@@ -77,7 +77,6 @@ public class MemberController {
 
     @GetMapping("login")
     public String loginForm() {
-
         return "member/login";
     }
 }
