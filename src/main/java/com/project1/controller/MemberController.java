@@ -39,7 +39,7 @@ public class MemberController {
 
     @GetMapping("")
     public String view(Integer id, Authentication authentication, Model model) {
-        if (service.hasAccess(id, authentication)) {
+        if (service.hasAccess(id, authentication) || service.isAdmin(authentication)) {
             model.addAttribute("member", service.get(id));
             return "member/info";
         }
