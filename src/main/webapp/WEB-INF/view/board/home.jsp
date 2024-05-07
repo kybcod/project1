@@ -51,6 +51,7 @@
             </table>
 
 
+            <%--            페이지 처리--%>
             <div class="row justify-content-center">
                 <div class="col-8">
                     <nav aria-label="Page navigation example">

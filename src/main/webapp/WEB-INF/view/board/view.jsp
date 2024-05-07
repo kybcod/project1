@@ -16,6 +16,13 @@
             font-weight: 300;
             font-style: normal;
         }
+
+        @font-face {
+            font-family: 'Ownglyph_meetme-Rg';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_1@1.0/Ownglyph_meetme-Rg.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
     </style>
 </head>
 <body>
@@ -31,26 +38,30 @@
                 <label for="inputTitle" class="form-label">
                     제목
                 </label>
-                <input id="inputTitle" class="form-control" type="text" value="${board.title}" readonly>
+                <input style="font-family: 'Ownglyph_meetme-Rg'" id="inputTitle" class="form-control" type="text"
+                       value="${board.title}" readonly>
             </div>
             <div class="mb-3">
                 <label for="textareaContent" class="form-label">
                     본문
                 </label>
-                <textarea id="textareaContent" class="form-control" cols="30" rows="10"
+                <textarea style="font-family: 'Ownglyph_meetme-Rg'" id="textareaContent" class="form-control" cols="30"
+                          rows="10"
                           readonly>${board.content}</textarea>
             </div>
             <div class="mb-3">
                 <label for="inputWriter" class="form-label">
                     작성자
                 </label>
-                <input id="inputWriter" class="form-control" type="text" readonly value="${board.writer}">
+                <input style="font-family: 'Ownglyph_meetme-Rg'" id="inputWriter" class="form-control" type="text"
+                       readonly value="${board.writer}">
             </div>
             <div class="mb-3">
                 <label for="inputInserted" class="form-label">
                     작성일시
                 </label>
-                <input id="inputInserted" class="form-control" type="datetime-local" readonly value="${board.inserted}">
+                <input style="font-family: 'Ownglyph_meetme-Rg'" id="inputInserted" class="form-control"
+                       type="datetime-local" readonly value="${board.inserted}">
             </div>
 
             <%--            1. 로그인된 사용자의 id와 2.게시물의 memberId가 같으면 버튼 보여줌--%>

@@ -44,4 +44,20 @@ WHERE id > 0;
 SELECT *
 FROM board;
 
-DESC board;
+# 권한 테이블 만들기
+CREATE TABLE authority
+(
+    id        INT PRIMARY KEY AUTO_INCREMENT,
+    member_id INT         NOT NULL REFERENCES member (id),
+    name      VARCHAR(20) NOT NULL
+);
+
+INSERT INTO authority (member_id, name)
+VALUES (47, 'admin');
+
+SELECT *
+FROM authority;
+
+SELECT *
+FROM member m
+         LEFT JOIN authority a on m.id = a.member_id;
