@@ -32,17 +32,25 @@
                         </li>
                     </sec:authorize>
                 </sec:authorize>
-                <sec:authorize access="not isAuthenticated()">
+
+                <sec:authorize access="isAuthenticated()">
+                    <sec:authentication property="principal.member" var="authMember"/>
                     <li class="nav-item">
-                        <a href="/member/signup" class="nav-link">
-                            회원가입
-                        </a>
+                        <a href="/member?id=${authMember.id}" class="nav-link">내 정보</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="/member/login" class="nav-link">
-                            로그인
-                        </a>
-                    </li>
+                </sec:authorize>
+
+                <li class="nav-item">
+                    <sec:authorize access="not isAuthenticated()">
+                    <a href="/member/signup" class="nav-link">
+                        회원가입
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/member/login" class="nav-link">
+                        로그인
+                    </a>
+                </li>
                 </sec:authorize>
                 <sec:authorize access="isAuthenticated()">
                     <li class="nav-item">
